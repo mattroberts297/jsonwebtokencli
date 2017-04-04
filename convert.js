@@ -8,13 +8,13 @@ module.exports = (options) => {
     if (options.hasOwnProperty('public-key-file')) {
       options.secret = fs.readFileSync(options['public-key-file']);
     }
-    return jwt.verify(
+    return JSON.stringify(jwt.verify(
       options.jwt,
       options.secret,
       {
         algorithms: options.algorithms
       }
-    );
+    ));
   } else if (options.encode) {
     if (options.hasOwnProperty('private-key-file')) {
       options.secret = fs.readFileSync(options['private-key-file']);

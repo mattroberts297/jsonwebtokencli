@@ -19,8 +19,8 @@ const optionDefinitions = [
 
 const sections = [
   {
-    header: 'A typical app',
-    content: 'Generates something [italic]{very} important.'
+    header: 'jsonwebtokencli',
+    content: 'A json web token command line interface'
   },
   {
     header: 'Options',
@@ -30,16 +30,15 @@ const sections = [
 
 const options = commandLineArgs(optionDefinitions);
 
-if (options.help) {
-  const usage = getUsage(sections)
-  console.log(usage)
-} else {
-  getStdin().then(stdin => {
-    if (!options.jwt) { options.jwt = stdin; }
+getStdin().then(stdin => {
+  if (!options.jwt) { options.jwt = stdin; }
+  if (options.help || options.jwt == '') {
+    return getUsage(sections);
+  } else {
     return convert(options);
-  }).then(res => {
-    console.log(res);
-  }, err => {
-    console.log(err);
-  });
-}
+  }
+}).then(res => {
+  console.log(res);
+}, err => {
+  console.log(err);
+});

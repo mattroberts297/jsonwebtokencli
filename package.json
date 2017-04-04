@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "mocha **.spec.js" 
+    "test": "mocha **.spec.js"
   },
   "bin": {
     "jwt": "main.js"
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "command-line-args": "^4.0.2",
+    "command-line-usage": "^4.0.0",
     "get-stdin": "^5.0.1",
     "jsonwebtoken": "^7.3.0"
   },

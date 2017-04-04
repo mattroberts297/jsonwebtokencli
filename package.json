@@ -1,0 +1,23 @@
+{
+  "name": "@mattroberts297/jwt-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha **.spec.js" 
+  },
+  "bin": {
+    "jwt": "main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^4.0.2",
+    "get-stdin": "^5.0.1",
+    "jsonwebtoken": "^7.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}

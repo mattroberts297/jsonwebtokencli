@@ -1,6 +1,12 @@
-# JSON Web Token (JWT) Command Line Interface (CLI)
+# JSON Web Token CLI
 
-A command line interface (CLI) for `jsonwebtoken` (JWT) library that can encode and decode both HS256 and RS256 tokens.
+A simple command line interface (CLI) for the `jsonwebtoken` (JWT) library that can encode and decode both HS256 and RS256 tokens.
+
+## Installation
+
+```bash
+npm install --global jsonwebtokencli
+```
 
 ## Show help
 

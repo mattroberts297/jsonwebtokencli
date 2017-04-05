@@ -31,7 +31,7 @@ const sections = [
 const options = commandLineArgs(optionDefinitions);
 
 getStdin().then(stdin => {
-  if (!options.jwt) { options.jwt = stdin; }
+  if (!options.jwt) { options.jwt = stdin.trim(); }
   if (options.help || options.jwt == '') {
     return getUsage(sections);
   } else {

@@ -1,6 +1,6 @@
 {
   "name": "jsonwebtokencli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple command line interface (CLI) for the jsonwebtoken (JWT) library",
   "main": "main.js",
   "repository": {

@@ -34,7 +34,9 @@ Options
   --jwt string
 ```
 
-## Decode a HS256 token using secret
+## HS256 Examples
+
+### Decode a HS256 token using secret
 
 ```bash
 jwt --decode --secret secret eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
@@ -44,7 +46,7 @@ jwt --decode --secret secret eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMj
 {"sub":"1234567890","name":"John Doe","admin":true}
 ```
 
-## Encode a HS256 token using secret
+### Encode a HS256 token using secret
 
 ```bash
 jwt --encode --secret secret '{"sub":"1234567890","name":"John Doe","admin":true}'
@@ -54,7 +56,9 @@ jwt --encode --secret secret '{"sub":"1234567890","name":"John Doe","admin":true
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 ```
 
-## Decode a RS256 token using public key
+## RS256 Examples
+
+### Decode a RS256 token using public key
 
 ```bash
 cat > public.key <<EOF
@@ -72,7 +76,7 @@ jwt --decode --algorithms 'RS256' --public-key-file './public.key' 'eyJhbGciOiJS
 {"sub":"1234567890","name":"John Doe","admin":true}
 ```
 
-## Encode a RS2566 token using private key
+### Encode a RS256 token using private key
 
 ```bash
 cat > private.key <<EOF
@@ -88,6 +92,28 @@ jwt --encode --algorithm 'RS256' --private-key-file './private.key' '{"sub":"123
 
 ```
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.EkN-DOsnsuRjRO6BxXemmJDm3HbxrbRzXglbN2S4sOkopdU4IsDxTI8jO19W_A4K8ZPJijNLis4EZsHeY559a4DFOd50_OqgHGuERTqYZyuhtF39yxJPAjUESwxk2J5k_4zM3O-vtd1Ghyo4IbqKKSy6J9mTniYJPenn5-HIirE
+```
+
+## `stdin` Examples
+
+### Decode `stdin`
+
+```bash
+echo eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ | jwt --decode --secret secret
+```
+
+```json
+{"sub":"1234567890","name":"John Doe","admin":true}
+```
+
+### Encode `stdin`
+
+```bash
+echo '{"sub":"1234567890","name":"John Doe","admin":true}' | jwt --encode --secret secret
+```
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 ```
 
 ## Known Issues

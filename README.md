@@ -1,5 +1,7 @@
 # JSON Web Token CLI
 
+[![Build Status](https://travis-ci.org/mattroberts297/jsonwebtokencli.svg?branch=master)](https://travis-ci.org/mattroberts297/jsonwebtokencli)
+
 A simple command line interface (CLI) for the `jsonwebtoken` (JWT) library that can encode and decode both HS256 and RS256 tokens.
 
 ## Installation

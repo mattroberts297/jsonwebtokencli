@@ -60,7 +60,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 
 ## RS256 Examples
 
-### Decode a RS256 token using public key
+### Decode a RS256 token using public key
 
 ```bash
 cat > public.key <<EOF

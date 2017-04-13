@@ -1,3 +1,12 @@
 language: node_js
 node_js:
   - "6"
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: npm publish
+  on:
+    tags: true
+env:
+  global:
+    - secure: "TEBRPR/TLzv8h1nfVxktT/ajJjAd97ZEk15IZ2Jm4nSRZyRYoN78wrSnnMULsr6yMTPPEFnfaCluGxjyj9dMTn03naVm9XJ3Q7uYowXlCK2Zi9grk+5ByUbB+iM/PucQnIG3j0tAUeHDHIG/HmmeLMU1fUS8dPiRw8zwd7jhy9+NqCRqn1q+MWQlZZnoQX+GOe1NsXDEZjnyJhNy2hHnYOGhjZwmM8LV8qoAHXqk8jnt5HHUIA7tEndMnZS5kl90BzCzkyI0VjXV9NIMo2yoPO/owD+QKGhxDpkX60cXoatKb7gj4XuhL6+WgqRvlAqLslrvYaL8XtzaWJ2ik6EXqUSIx59eFeUXK6mKmoHHxfTsR1Aql9GJQXgJVb7xxeJ4OCvo7XE2au3BIGkrzOxD3T33VAySiVxnfr0mJizE2Ops8iyLqTbBm1HvFOxJUqXMRwIJDtYxheEk0hAHwMu8lnub7gh7v3UqYYsDKQVjVMd98NMahSGudJ8gqVRchTCIUSkbq0aCfwsJ+yKha1nTwYgojRqyXj2t+eKZ9jtmwbUgKeYE/j+K+/rUUk0aVedUN8iwwfBKwyBc4t77oEJYUVue0yzn2KRIAcz92EOV4iouy+714oFt13jormnbArnVryFGfCWjBoB/97CpPsjYbYhJWPY38U0/uTkDbkzCx4U="

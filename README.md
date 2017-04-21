@@ -25,21 +25,31 @@ jsonwebtokencli
 
 Options
 
-  -h, --help
-  -d, --decode
-  -e, --encode
-  -s, --secret string
-  --private-key-file string
-  --public-key-file string
-  -t, --timestamp
-  --algorithm string
-  --algorithms string[]
-  --jwt string
+  -h, --help                  Display this help
+  -d, --decode                Decode an encoded jwt token
+  -e, --encode                Encode a decoded jwt token - requires secret or private key
+  -s, --secret string         Used with decode and encode - when used with decode the jwt token is verified
+  --private-key-file string   Used with encode - the key to sign a decoded jwt token with
+  --public-key-file string    When used with decode the encoded jwt token is verified
+  -t, --timestamp             Used with encode - whether or not to include iat
+  --algorithm string          Used with encode - supported values include HS256, HS384 and RS256
+  --algorithms string[]       Used with decode - requires secret or private key
+  --jwt string                The jwt to decode or encode - falls back to stdin
 ```
 
 ## HS256 Examples
 
-### Decode a HS256 token using secret
+### Decode a HS256 token
+
+```bash
+jwt --decode eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
+```
+
+```json
+{"sub":"1234567890","name":"John Doe","admin":true}
+```
+
+### Verify a HS256 token using secret
 
 ```bash
 jwt --decode --secret secret eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
@@ -61,7 +71,17 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 
 ## RS256 Examples
 
-### Decode a RS256 token using public key
+### Decode a RS256 token
+
+```bash
+jwt --decode 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.EkN-DOsnsuRjRO6BxXemmJDm3HbxrbRzXglbN2S4sOkopdU4IsDxTI8jO19W_A4K8ZPJijNLis4EZsHeY559a4DFOd50_OqgHGuERTqYZyuhtF39yxJPAjUESwxk2J5k_4zM3O-vtd1Ghyo4IbqKKSy6J9mTniYJPenn5-HIirE'
+```
+
+```json
+{"sub":"1234567890","name":"John Doe","admin":true}
+```
+
+### Verify a RS256 token using public key
 
 ```bash
 cat > public.key <<EOF
@@ -102,7 +122,7 @@ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 ### Decode `stdin`
 
 ```bash
-echo eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ | jwt --decode --secret secret
+echo eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ | jwt --decode
 ```
 
 ```json
@@ -117,6 +137,35 @@ echo '{"sub":"1234567890","name":"John Doe","admin":true}' | jwt --encode --secr
 
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
+```
+
+## Development
+
+Check jwt is not installed globally:
+
+```bash
+$ which jwt
+jwt not found
+```
+
+In the project directory, use `npm link`:
+
+```bash
+$ npm link
+/usr/local/bin/jwt -> /usr/local/lib/node_modules/jsonwebtokencli/main.js
+```
+
+Check it worked:
+
+```bash
+$ which jwt
+/usr/local/bin/jwt
+```
+
+Unlink when finished:
+
+```bash
+$ npm unlink
 ```
 
 ## Known Issues

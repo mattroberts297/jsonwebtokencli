@@ -14,6 +14,7 @@ const optionDefinitions = [
   { name: 'private-key-file', type: String, description: 'Used with encode - the key to sign a decoded jwt token with' },
   { name: 'public-key-file', type: String, description: 'When used with decode the encoded jwt token is verified' },
   { name: 'timestamp', alias: 't', type: Boolean, defaultValue: false, description: 'Used with encode - whether or not to include iat' },
+  { name: 'ignore-expiration', alias: 'i', type: Boolean, defaultValue: false, description: 'Used with decode - whether to ignore exp' },
   { name: 'algorithm', type: String, defaultValue: 'HS256', description: 'Used with encode - supported values include HS256, HS384 and RS256' },
   { name: 'algorithms', type: String, multiple: true, defaultValue: ['HS256', 'HS384'], description: 'Used with decode - requires secret or private key' },
   { name: 'jwt', type: String, defaultOption: true, description: 'The jwt to decode or encode - falls back to stdin' }
@@ -21,7 +22,7 @@ const optionDefinitions = [
 
 const sections = [
   {
-    header: 'jsonwebtokencli',
+    header: 'jsonwebtokencli v1.2.0',
     content: 'A json web token command line interface'
   },
   {

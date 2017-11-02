@@ -16,7 +16,8 @@ module.exports = (options) => {
         options.jwt,
         options.secret,
         {
-          algorithms: options.algorithms
+          algorithms: options.algorithms,
+          ignoreExpiration: options['ignore-expiration']
         }
       ));
     } else {

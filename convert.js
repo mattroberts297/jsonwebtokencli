@@ -21,7 +21,7 @@ module.exports = (options) => {
         }
       ));
     } else {
-      return JSON.stringify(jwt.decode(options.jwt));
+      return JSON.stringify(jwt.decode(options.jwt, {complete: options.complete}));
     }
   } else if (options.encode) {
     if (options.hasOwnProperty('private-key-file')) {

@@ -15,6 +15,7 @@ const optionDefinitions = [
   { name: 'public-key-file', type: String, description: 'When used with decode the encoded jwt token is verified' },
   { name: 'timestamp', alias: 't', type: Boolean, defaultValue: false, description: 'Used with encode - whether or not to include iat' },
   { name: 'ignore-expiration', alias: 'i', type: Boolean, defaultValue: false, description: 'Used with decode - whether to ignore exp' },
+  { name: 'complete', alias: 'c', type: Boolean, defaultValue: false, description: 'Used with decode - whether to decode header and payload' },
   { name: 'algorithm', type: String, defaultValue: 'HS256', description: 'Used with encode - supported values include HS256, HS384 and RS256' },
   { name: 'algorithms', type: String, multiple: true, defaultValue: ['HS256', 'HS384'], description: 'Used with decode - requires secret or private key' },
   { name: 'jwt', type: String, defaultOption: true, description: 'The jwt to decode or encode - falls back to stdin' }

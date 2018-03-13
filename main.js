@@ -13,6 +13,7 @@ const optionDefinitions = [
   { name: 'secret', alias: 's', type: String, description: 'Used with decode and encode - when used with decode the jwt token is verified' },
   { name: 'private-key-file', type: String, description: 'Used with encode - the key to sign a decoded jwt token with' },
   { name: 'public-key-file', type: String, description: 'When used with decode the encoded jwt token is verified' },
+  { name: 'keyid', alias: 'k', type: String, description: 'When used with encode sets the kid in jwt header' },
   { name: 'timestamp', alias: 't', type: Boolean, defaultValue: false, description: 'Used with encode - whether or not to include iat' },
   { name: 'ignore-expiration', alias: 'i', type: Boolean, defaultValue: false, description: 'Used with decode - whether to ignore exp' },
   { name: 'complete', alias: 'c', type: Boolean, defaultValue: false, description: 'Used with decode - whether to decode header and payload' },

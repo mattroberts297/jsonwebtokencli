@@ -32,7 +32,8 @@ module.exports = (options) => {
       options.secret,
       {
         algorithm: options.algorithm,
-        noTimestamp: !options.timestamp
+        noTimestamp: !options.timestamp,
+        keyid: options.keyid
       }
     );
   }

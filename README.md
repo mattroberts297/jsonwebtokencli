@@ -148,6 +148,12 @@ $ which jwt
 jwt not found
 ```
 
+Maybe uninstall it:
+
+```bash
+npm --global uninstall jsonwebtokencli
+```
+
 In the project directory, use `npm link`:
 
 ```bash

@@ -1,6 +1,6 @@
 {
   "name": "jsonwebtokencli",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A simple command line interface (CLI) for the jsonwebtoken (JWT) library",
   "main": "main.js",
   "repository": {
@@ -18,9 +18,9 @@
     "jwt": "main.js"
   },
   "author": {
-    "name" : "Matt Roberts",
-    "email" : "mail@mattroberts.io",
-    "url" : "https://mattroberts.io"
+    "name": "Matt Roberts",
+    "email": "mail@mattroberts.io",
+    "url": "https://mattroberts.io"
   },
   "license": "MIT",
   "dependencies": {

@@ -27,14 +27,17 @@ module.exports = (options) => {
     if (options.hasOwnProperty('private-key-file')) {
       options.secret = fs.readFileSync(options['private-key-file']);
     }
+    let signOpts = {
+      algorithm: options.algorithm,
+      noTimestamp: !options.timestamp
+    }
+    if (options.keyid !== undefined && options.keyid !== null) {
+      signOpts.keyid = keyid;
+    }
     return jwt.sign(
       JSON.parse(options.jwt),
       options.secret,
-      {
-        algorithm: options.algorithm,
-        noTimestamp: !options.timestamp,
-        keyid: options.keyid
-      }
+      signOpts
     );
   }
 };

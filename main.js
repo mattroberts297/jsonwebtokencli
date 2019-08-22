@@ -24,7 +24,7 @@ const optionDefinitions = [
 
 const sections = [
   {
-    header: 'jsonwebtokencli v1.3.0',
+    header: 'jsonwebtokencli v1.5.1',
     content: 'A json web token command line interface'
   },
   {

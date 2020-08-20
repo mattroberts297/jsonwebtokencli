@@ -32,7 +32,7 @@ module.exports = (options) => {
       noTimestamp: !options.timestamp
     }
     if (options.keyid !== undefined && options.keyid !== null) {
-      signOpts.keyid = keyid;
+      signOpts.keyid = options.keyid;
     }
     return jwt.sign(
       JSON.parse(options.jwt),
